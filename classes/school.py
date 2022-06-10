@@ -16,3 +16,18 @@ class School:
         for student in self.students:
             if student.school_id == student_id:
                 return student
+        return False
+
+    def add_student(self, student_data):
+        self.students.append(Student(student_data))
+        pass
+    
+    def remove_student(self, school_id):
+        if self.find_student_by_id(school_id) != False:
+            student = self.find_student_by_id(school_id)
+            self.students.remove(student)
+            print(f"{student.name} deleted.")
+            return
+        print("Student not found")
+        return
+        
